@@ -1309,9 +1309,9 @@ footer {
             <span class="ct-link-l">WhatsApp</span>
             <span class="ct-link-v">Open conversation →</span>
           </a>
-          <a href="mailto:info@hacienda-raselhekma.com" class="ct-link">
+          <a href="mailto:palmhills.salesagent@gmail.com" class="ct-link">
             <span class="ct-link-l">Email</span>
-            <span class="ct-link-v">info@hacienda-raselhekma.com</span>
+            <span class="ct-link-v">palmhills.salesagent@gmail.com</span>
           </a>
         </div>
       </div>
@@ -1520,6 +1520,8 @@ audioBtn.addEventListener('click',()=>{
     audioBtn.classList.remove('playing');
     audioWave.classList.remove('show');
   } else {
+    // Force reload if needed
+    if(audio.readyState === 0){ audio.load(); }
     const p=audio.play();
     if(p!==undefined){
       p.then(()=>{
