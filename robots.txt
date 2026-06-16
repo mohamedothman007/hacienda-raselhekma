@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hacienda-raselhekma.netlify.app/sitemap.xml
