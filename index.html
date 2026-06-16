@@ -1318,9 +1318,9 @@ footer {
       </div>
       <div class="rv-r">
         <div class="gdpr-note">Your information is used solely to connect you with our sales team. We do not share data with third parties. Processed under Egypt's Personal Data Protection Law No. 151/2020. <a href="#privacy">Privacy Policy</a>.</div>
-        <form class="lead-form" id="lead-form" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" novalidate>
-          <input type="hidden" name="form-name" value="contact">
-          <p hidden><label>Leave empty: <input name="bot-field"></label></p>
+        <form class="lead-form" id="lead-form" novalidate data-netlify="true" data-netlify-honeypot="bot-field" name="hacienda-leads">
+          <input type="hidden" name="form-name" value="hacienda-leads">
+          <input type="hidden" name="_replyto" value="palmhills.salesagent@gmail.com">
           <div class="ff"><input type="text" name="name" placeholder="Full Name" required autocomplete="name"><div class="ff-ln"></div></div>
           <div class="ff"><input type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel"><div class="ff-ln"></div></div>
           <div class="ff"><input type="email" name="email" placeholder="Email Address" autocomplete="email"><div class="ff-ln"></div></div>
@@ -1544,28 +1544,14 @@ audioBtn.addEventListener('click',()=>{
 });
 
 /* ── FORM ───────────────────────────────── */
-document.getElementById('lead-form').addEventListener('submit',async e=>{
+document.getElementById('lead-form').addEventListener('submit',e=>{
   e.preventDefault();
-  const form=e.target;
   const cs=document.getElementById('cs');
   if(!cs.checked){cs.style.outline='1px solid rgba(201,169,110,.5)';return;}
-  const btn=form.querySelector('.submit-btn');
+  const btn=e.target.querySelector('.submit-btn');
+  btn.innerHTML='<span>✓ Received — We\'ll be in touch shortly</span>';
+  btn.style.borderColor='rgba(201,169,110,.3)';
   btn.disabled=true;
-  btn.innerHTML='<span>Sending…</span>';
-  try{
-    const res=await fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()});
-    if(res.ok){
-      btn.innerHTML='<span>✓ Received — We\'ll be in touch shortly</span>';
-      btn.style.borderColor='rgba(201,169,110,.3)';
-      form.reset();
-    }else{
-      btn.disabled=false;
-      btn.innerHTML='<span>Something went wrong — please retry</span>';
-    }
-  }catch(err){
-    btn.disabled=false;
-    btn.innerHTML='<span>Network error — please retry</span>';
-  }
 });
 
 /* ── COOKIE ─────────────────────────────── */
