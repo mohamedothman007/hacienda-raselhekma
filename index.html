@@ -1520,27 +1520,11 @@ audioBtn.addEventListener('click',()=>{
     audioBtn.classList.remove('playing');
     audioWave.classList.remove('show');
   } else {
-    // Force reload if needed
-    if(audio.readyState === 0){ audio.load(); }
-    const p=audio.play();
-    if(p!==undefined){
-      p.then(()=>{
-        playing=true;
-        audioBtn.classList.add('playing');
-        audioWave.classList.add('show');
-      }).catch(e=>{
-        console.log('Audio error:',e);
-        // Try again after brief delay
-        setTimeout(()=>{
-          audio.load();
-          audio.play().then(()=>{
-            playing=true;
-            audioBtn.classList.add('playing');
-            audioWave.classList.add('show');
-          }).catch(()=>{});
-        },500);
-      });
-    }
+    audio.play().then(()=>{
+      playing=true;
+      audioBtn.classList.add('playing');
+      audioWave.classList.add('show');
+    }).catch(()=>{});
   }
 });
 
