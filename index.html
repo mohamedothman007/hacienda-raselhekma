@@ -268,10 +268,7 @@ nav.scrolled {
 /* Overlay */
 .hero-overlay {
   position:absolute; inset:0; z-index:2;
-  background:
-    linear-gradient(to top, rgba(5,6,10,1) 0%, rgba(5,6,10,.55) 30%, rgba(5,6,10,.1) 65%, transparent 100%),
-    linear-gradient(to right, rgba(5,6,10,.4) 0%, transparent 55%),
-    linear-gradient(to bottom, rgba(5,6,10,.3) 0%, transparent 25%);
+  background: rgba(0,0,0,0.4);
 }
 
 /* Grain texture */
@@ -1000,12 +997,9 @@ footer {
 <!-- HERO                                  -->
 <!-- ══════════════════════════════════════ -->
 <section class="hero" id="hero">
-  <div class="hero-slides">
-    <div class="hero-slide slide-1 active"></div>
-    <div class="hero-slide slide-2"></div>
-    <div class="hero-slide slide-3"></div>
-    <div class="hero-slide slide-4"></div>
-  </div>
+  <video autoplay loop muted playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+    <source src="https://videos.pexels.com/video-files/1093662/1093662-hd_1920_1080_24fps.mp4" type="video/mp4">
+  </video>
   <div class="hero-overlay"></div>
   <div class="hero-grain"></div>
 
@@ -1022,30 +1016,10 @@ footer {
 
   <!-- Content -->
   <div class="hero-content">
-    <div class="hero-eyebrow" id="h-ey">Palm Hills Developments · Ras El Hekma · KM 238</div>
-    <h1 class="hero-h1" id="h-h1">
-      The <em>Mediterranean's</em><br>most extraordinary<br>shore
-    </h1>
-    <p class="hero-tagline" id="h-tag">Where the sea becomes home</p>
-    <div class="hero-bottom" id="h-bot">
-      <p class="hero-desc">A gated coastal city of 1,400 acres rising from Egypt's most coveted Mediterranean bay. Conceived for permanence. Designed for life.</p>
-      <div class="hero-right">
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <div class="hero-stat-val">4.8km</div>
-            <div class="hero-stat-lbl">Private Beach</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-val">97%</div>
-            <div class="hero-stat-lbl">Sea Views</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-val">EGP 11M</div>
-            <div class="hero-stat-lbl">Starting From</div>
-          </div>
-        </div>
-        <a href="#contact" class="hero-cta-link">Request priority access →</a>
-      </div>
+    <div class="hero-eyebrow" id="h-ey">Hacienda Ras El Hekma · Palm Hills</div>
+    <h1 class="hero-h1" id="h-h1" style="font-style:italic;font-size:clamp(56px,7vw,96px);">The Shore</h1>
+    <div class="hero-bottom" id="h-bot" style="margin-top:40px;">
+      <a href="#contact" class="hero-cta-link" style="color:#fff;border-bottom-color:rgba(255,255,255,0.3);font-size:10px;letter-spacing:.4em;">Discover</a>
     </div>
   </div>
 
