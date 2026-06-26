@@ -55,6 +55,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Josefin+Sans:wght@100;200;300;400&family=Cinzel:wght@400;500&family=Great+Vibes&family=Jost:wght@100;200;300;400&family=Noto+Serif+Arabic:wght@300;400;500&display=swap" rel="stylesheet">
 
+<!-- EmailJS -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 <!-- GSAP -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -858,21 +861,6 @@ footer {
 }
 .f-link:hover { color:var(--gold); }
 
-/* ═══════════════════════════════════════════
-   WHATSAPP
-═══════════════════════════════════════════ */
-.wa-float { position:fixed; bottom:32px; right:32px; z-index:400; }
-.wa-btn {
-  width:48px; height:48px; background:#25D366; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  text-decoration:none;
-  box-shadow:0 4px 24px rgba(37,211,102,.22);
-  animation:waF 3s ease-in-out infinite;
-  transition:transform .3s, box-shadow .3s;
-}
-.wa-btn:hover { transform:scale(1.1); box-shadow:0 8px 36px rgba(37,211,102,.4); }
-@keyframes waF{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-.wa-btn svg { width:22px; height:22px; fill:#fff; }
 
 /* ═══════════════════════════════════════════
    COOKIE
@@ -932,9 +920,7 @@ footer {
   footer { flex-direction:column; text-align:center; padding:28px 24px; }
   .f-links { justify-content:center; }
   #ck { padding:14px 24px; flex-direction:column; }
-  .wa-float, #audio-btn { bottom:18px; }
-  .wa-float { right:18px; }
-  #audio-btn { left:18px; }
+  #audio-btn { bottom:18px; left:18px; }
   #audio-wave { bottom:24px; left:68px; }
 }
 
@@ -1272,28 +1258,12 @@ footer {
     <div class="contact-grid">
       <div>
         <div class="s-tag rv">Reserve</div>
-        <h2 class="ct-h rv">Your sea<br>is <em>waiting</em></h2>
-        <p class="ct-body rv">Connect with our North Coast specialists. Priority access, current pricing, and a private presentation — entirely on your terms. No obligation.</p>
-        <div class="ct-links rv">
-          <a href="tel:+201113130725" class="ct-link">
-            <span class="ct-link-l">Phone</span>
-            <span class="ct-link-v">+20 111 313 0725</span>
-          </a>
-          <a href="https://wa.me/201113130725?text=Hello%2C%20I%27m%20interested%20in%20Hacienda%20Ras%20El%20Hekma" target="_blank" rel="noopener" class="ct-link">
-            <span class="ct-link-l">WhatsApp</span>
-            <span class="ct-link-v">Open conversation →</span>
-          </a>
-          <a href="mailto:palmhills.salesagent@gmail.com" class="ct-link">
-            <span class="ct-link-l">Email</span>
-            <span class="ct-link-v">palmhills.salesagent@gmail.com</span>
-          </a>
-        </div>
+        <h2 class="ct-h rv">Register Your<br><em>Interest</em></h2>
+        <p class="ct-body rv">Submit your details and we'll be in touch with availability, pricing and floor plans.</p>
       </div>
       <div class="rv-r">
-        <div class="gdpr-note">Your information is used solely to connect you with our sales team. We do not share data with third parties. Processed under Egypt's Personal Data Protection Law No. 151/2020. <a href="#privacy">Privacy Policy</a>.</div>
-        <form class="lead-form" id="lead-form" novalidate data-netlify="true" data-netlify-honeypot="bot-field" name="hacienda-leads">
-          <input type="hidden" name="form-name" value="hacienda-leads">
-          <input type="hidden" name="_replyto" value="palmhills.salesagent@gmail.com">
+        <div class="gdpr-note">Your information is used solely to process your enquiry. We do not share data with third parties. Processed under Egypt's Personal Data Protection Law No. 151/2020. <a href="#privacy">Privacy Policy</a>.</div>
+        <form class="lead-form" id="lead-form" novalidate>
           <div class="ff"><input type="text" name="name" placeholder="Full Name" required autocomplete="name"><div class="ff-ln"></div></div>
           <div class="ff"><input type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel"><div class="ff-ln"></div></div>
           <div class="ff"><input type="email" name="email" placeholder="Email Address" autocomplete="email"><div class="ff-ln"></div></div>
@@ -1332,12 +1302,6 @@ footer {
   </div>
 </footer>
 
-<!-- WHATSAPP -->
-<div class="wa-float">
-  <a href="https://wa.me/201113130725?text=Hello%2C%20I%27m%20interested%20in%20Hacienda%20Ras%20El%20Hekma%20by%20Palm%20Hills" target="_blank" rel="noopener" class="wa-btn" aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-  </a>
-</div>
 
 <script>
 gsap.registerPlugin(ScrollTrigger);
@@ -1355,7 +1319,7 @@ document.addEventListener('mousemove', e=>{
   ring.style.left=rx+'px'; ring.style.top=ry+'px';
   requestAnimationFrame(ar);
 })();
-document.querySelectorAll('a,button,.res-main,.res-card,.life-item,.pay-item,.dist,.ct-link').forEach(el=>{
+document.querySelectorAll('a,button,.res-main,.res-card,.life-item,.pay-item,.dist').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('cur-hover'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('cur-hover'));
 });
@@ -1502,15 +1466,33 @@ audioBtn.addEventListener('click',()=>{
   }
 });
 
+/* ── EMAILJS ────────────────────────────── */
+(function(){
+  emailjs.init('YOUR_PUBLIC_KEY');
+})();
+
 /* ── FORM ───────────────────────────────── */
-document.getElementById('lead-form').addEventListener('submit',e=>{
+document.getElementById('lead-form').addEventListener('submit',function(e){
   e.preventDefault();
   const cs=document.getElementById('cs');
   if(!cs.checked){cs.style.outline='1px solid rgba(201,169,110,.5)';return;}
-  const btn=e.target.querySelector('.submit-btn');
-  btn.innerHTML='<span>✓ Received — We\'ll be in touch shortly</span>';
-  btn.style.borderColor='rgba(201,169,110,.3)';
+  const btn=this.querySelector('.submit-btn');
+  btn.innerHTML='<span>Sending…</span>';
   btn.disabled=true;
+  const fd=new FormData(this);
+  emailjs.send('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID',{
+    from_name: fd.get('name'),
+    from_email: fd.get('email'),
+    phone: fd.get('phone'),
+    unit: fd.get('unit'),
+    message: fd.get('msg')
+  }).then(()=>{
+    btn.innerHTML='<span>✓ Received — We\'ll be in touch shortly</span>';
+    btn.style.borderColor='rgba(201,169,110,.3)';
+  }).catch(()=>{
+    btn.innerHTML='<span>Something went wrong — please try again</span>';
+    btn.disabled=false;
+  });
 });
 
 /* ── COOKIE ─────────────────────────────── */
