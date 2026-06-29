@@ -1468,7 +1468,7 @@ audioBtn.addEventListener('click',()=>{
 
 /* ── EMAILJS ────────────────────────────── */
 (function(){
-  emailjs.init('YOUR_PUBLIC_KEY');
+  emailjs.init('vEYQAAQojJ-1uRkTj');
 })();
 
 /* ── FORM ───────────────────────────────── */
@@ -1480,7 +1480,7 @@ document.getElementById('lead-form').addEventListener('submit',function(e){
   btn.innerHTML='<span>Sending…</span>';
   btn.disabled=true;
   const fd=new FormData(this);
-  emailjs.send('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID',{
+  emailjs.send('service_e86yiwl','mye03en',{
     from_name: fd.get('name'),
     from_email: fd.get('email'),
     phone: fd.get('phone'),
